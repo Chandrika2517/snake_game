@@ -1,0 +1,197 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+#startScreen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('snake.jpg') no-repeat center center;
+    background-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#startOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+#startOverlay h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+#startButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+#gameCanvas {
+    border: 1px solid #000;
+    background-color: #fff;
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+
+}
+
+#levelScreen,
+#gameScreen {
+    margin-top: 50px;
+}
+
+#levels {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.levelButton {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    background-color: grey;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+
+}
+
+.levelButton.passed {
+    background-color: green;
+}
+
+.levelButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.levelButton.tooltip {
+    position: relative;
+}
+
+.levelButton.tooltip::after {
+    content: "Complete previous levels first";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+
+.levelButton.tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+#controls {
+    margin-top: 20px;
+}
+
+#controls button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+#controls .fa {
+    font-size: 24px;
+}
+
+
+
+@media (max-width: 600px) {
+    .levelButton {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    #controls button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    #controls .fa {
+        font-size: 20px;
+    }
+
+    #gameCanvas {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 400px) {
+    .levelButton {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    #controls button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    #controls .fa {
+        font-size: 18px;
+    }
+
+    #gameCanvas {
+        width: 90%;
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 400px) {
+    #startOverlay h1 {
+        font-size: 2em;
+    }
+
+    #startButton {
+        padding: 6px 12px;
+        font-size: 1em;
+    }
+}
